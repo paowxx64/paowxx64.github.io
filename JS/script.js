@@ -241,6 +241,11 @@ function obtenerRespuesta(texto) {
         return "bueno, nos vemos... si es que vuelves.";
     }
 
+    if (mensaje.includes("no soy el mismo") || mensaje.includes("soy el mismo")){
+    return"entiendo... mmm... nadie nunca lo es";
+    }
+    
+
     // Respuestas para mensajes no reconocidos
     const respuestas = [
         "interesante...",
@@ -368,13 +373,22 @@ function elegirFinal(texto) {
     }
 
   
+
 estadoChat = "final";
 lineaActual = 0;
 
 document.body.classList.add("modo-existencial");
 
+// Activar la canción correspondiente al final elegido
+window.dispatchEvent(
+    new CustomEvent("inicio-final", {
+        detail: { nombre: finalElegido }
+    })
+);
+
 // Comenzar la lectura como novela visual
 iniciarLecturaFinal();
+
 
 }
 
@@ -697,6 +711,10 @@ function restaurarChat() {
     );
 
     cerrandoFinal = false;
+
+// Recuperar la música ambiental
+window.dispatchEvent(new Event("fin-final"));
+
 }
 
 // Despedida especial del final El tiempo
@@ -714,9 +732,16 @@ function mostrarDespedida() {
     chat.appendChild(botonApagar);
 
     botonApagar.addEventListener("click", () => {
-        const pantalla = document.createElement(
-            "div"
-        );
+
+    // Detener la música del final El tiempo
+    window.dispatchEvent(
+        new CustomEvent("fin-final", {
+            detail: { silencio: true }
+        })
+    );
+
+    // Crear la pantalla de despedida
+    const pantalla = document.createElement("div");
 
         pantalla.className = "pantalla-final";
         pantalla.setAttribute(
