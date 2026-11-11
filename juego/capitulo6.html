@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Alguien está ahí | UnderOmorI</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="capitulo6.css">
+
+    <script src="estado.js" defer></script>
+    <script src="capitulo6.js" defer></script>
+    <script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="6">
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 006</p>
+            <h1>Alguien está ahí</h1>
+            <p class="subtitulo">
+                Una habitación para alguien que
+                todavía no tiene nombre.
+            </p>
+        </header>
+
+        <section class="ventana-juego">
+            <div class="barra-ventana">
+                <span>◇ presencia_desconocida.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div id="habitacion"
+                 class="habitacion"
+                 aria-label="Habitación de las señales">
+            </div>
+
+            <p id="estado" class="estado">
+                Señales escuchadas: 0/3
+            </p>
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+            <div class="identidad-dialogo">
+
+                <img
+                    id="retrato"
+                    class="retrato-dialogo"
+                    src="../assets/sprites/paunexina-abajo.png"
+                    alt=""
+                >
+
+                <div class="contenido-dialogo">
+                    <p id="hablante"
+                       class="nombre-personaje">
+                        PAUNEXINA
+                    </p>
+
+                    <p id="texto-dialogo">
+                        Hay algo diferente en este lugar...
+                    </p>
+                </div>
+            </div>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR / CONTINUAR
+            </button>
+        </section>
+
+        <!-- Panel para las respuestas del jugador -->
+        <section id="panel-pregunta"
+                 class="elecciones panel-pregunta"
+                 hidden>
+
+            <p class="etiqueta" id="etiqueta-pregunta">
+                CONEXIÓN
+            </p>
+
+            <h2 id="pregunta"></h2>
+
+            <div id="opciones"></div>
+        </section>
+
+        <!-- Único espacio para escribir -->
+        <section id="panel-nombre"
+                 class="elecciones panel-nombre"
+                 hidden>
+
+            <p class="etiqueta">
+                IDENTIFICACIÓN VOLUNTARIA
+            </p>
+
+            <h2>¿Cómo quieres que te llame?</h2>
+
+            <form id="formulario-nombre">
+                <label for="nombre-jugador">
+                    Tu nombre o apodo
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre-jugador"
+                    maxlength="24"
+                    autocomplete="off"
+                    placeholder="Puedes escribir un apodo..."
+                >
+
+                <button type="submit">
+                    ▶ RESPONDER
+                </button>
+            </form>
+
+            <button id="omitir-nombre" type="button">
+                PREFIERO NO DECIRLO
+            </button>
+        </section>
+
+        <div class="controles">
+            <button data-mover="arriba"
+                    type="button"
+                    aria-label="Mover arriba">▲</button>
+
+            <div>
+                <button data-mover="izquierda"
+                        type="button"
+                        aria-label="Mover izquierda">◀</button>
+
+                <button data-mover="abajo"
+                        type="button"
+                        aria-label="Mover abajo">▼</button>
+
+                <button data-mover="derecha"
+                        type="button"
+                        aria-label="Mover derecha">▶</button>
+            </div>
+        </div>
+
+        <section id="cierre" class="cierre" hidden>
+            <p class="etiqueta">
+                ARCHIVO 006 COMPLETADO
+            </p>
+
+            <h2>No estaba hablando sola</h2>
+
+            <p id="texto-cierre"></p>
+
+            <p class="etiqueta">
+                PRÓXIMO ARCHIVO: EL NOMBRE QUE DEJÉ AQUÍ
+            </p>
+
+<p>
+    <a href="capitulo7.html"
+       class="enlace-siguiente">
+        ▶ CONTINUAR AL CAPÍTULO FINAL
+    </a>
+</p>
+        </section>
+
+        <footer>
+            <a href="capitulo5.html">
+                ← Regresar al Capítulo 5
+            </a>
+        </footer>
+
+    </main>
+</body>
+</html>

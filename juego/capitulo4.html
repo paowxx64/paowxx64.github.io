@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Las cosas que no ocurrieron | UnderOmorI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="capitulo4.css">
+<script src="estado.js" defer></script>
+<script src="capitulo4.js" defer></script>
+<script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="4">
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 004</p>
+            <h1>Las cosas que no ocurrieron</h1>
+            <p class="subtitulo">
+                Tres futuros imaginados.
+                Ninguno ocurrió exactamente así.
+            </p>
+        </header>
+
+        <section class="ventana-juego">
+            <div class="barra-ventana">
+                <span>◇ futuros_posibles.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div id="habitacion" class="habitacion"
+                 aria-label="Sala de futuros posibles">
+            </div>
+
+            <p id="estado" class="estado">
+                Posibilidades exploradas: 0/3
+            </p>
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+
+            <div class="identidad-dialogo">
+                <img id="retrato"
+                     src="../assets/sprites/paunexina-abajo.png"
+                     alt=""
+                     class="retrato-dialogo">
+
+                <div>
+                    <p id="hablante" class="nombre-personaje">
+                        PAUNEXINA
+                    </p>
+
+                    <p id="texto-dialogo">
+                        No recuerdo haber visto este lugar...
+                    </p>
+                </div>
+            </div>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR / CONTINUAR
+            </button>
+        </section>
+
+        <section id="panel-opciones" class="elecciones" hidden>
+            <p class="etiqueta" id="tipo-panel">
+                ARCHIVO INCOMPLETO
+            </p>
+
+            <h2 id="pregunta"></h2>
+
+            <div id="opciones"></div>
+        </section>
+
+        <div class="controles">
+            <button data-mover="arriba" aria-label="Arriba">▲</button>
+
+            <div>
+                <button data-mover="izquierda"
+                        aria-label="Izquierda">◀</button>
+
+                <button data-mover="abajo"
+                        aria-label="Abajo">▼</button>
+
+                <button data-mover="derecha"
+                        aria-label="Derecha">▶</button>
+            </div>
+        </div>
+
+        <section id="cierre" class="cierre" hidden>
+            <p class="etiqueta">ARCHIVO 004 COMPLETADO</p>
+
+            <h2>Los futuros que dejamos atrás</h2>
+
+            <p id="texto-cierre"></p>
+
+            <p class="etiqueta">
+                PRÓXIMO ARCHIVO: LA PERSONA DETRÁS DE LA PANTALLA
+            </p>
+            <a href="capitulo5.html" class="enlace-siguiente">
+    ▶ CONTINUAR AL CAPÍTULO 5
+</a>
+        </section>
+
+        <footer>
+            <a href="capitulo3.html">
+                ← Regresar al Capítulo 3
+            </a>
+        </footer>
+
+    </main>
+</body>
+</html>

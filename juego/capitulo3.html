@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Antes de tener un nombre | UnderOmorI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="capitulo3.css">
+
+    <script src="capitulo3.js" defer></script>
+    <script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="3">
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 003</p>
+            <h1>Antes de tener un nombre</h1>
+            <p class="subtitulo">
+                Hay recuerdos que no desaparecen.
+                Solamente olvidamos dónde buscarlos.
+            </p>
+        </header>
+
+        <section class="ventana-juego">
+            <div class="barra-ventana">
+                <span>◇ recuerdos_de_pao.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div id="habitacion" class="habitacion"
+                 aria-label="Habitación de recuerdos">
+            </div>
+
+            <p id="estado" class="estado">
+                Recuerdos recuperados: 0/3
+            </p>
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+            <p id="hablante" class="nombre-personaje">
+                PAUNEXINA
+            </p>
+
+            <p id="texto-dialogo">
+                Este lugar se siente diferente...
+            </p>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR / CONTINUAR
+            </button>
+        </section>
+
+        <section id="elecciones" class="elecciones" hidden>
+            <p class="etiqueta">RECONSTRUIR RECUERDO</p>
+            <h2 id="pregunta"></h2>
+            <div id="opciones"></div>
+        </section>
+
+        <div class="controles">
+            <button data-mover="arriba" aria-label="Arriba">▲</button>
+            <div>
+                <button data-mover="izquierda"
+                        aria-label="Izquierda">◀</button>
+                <button data-mover="abajo"
+                        aria-label="Abajo">▼</button>
+                <button data-mover="derecha"
+                        aria-label="Derecha">▶</button>
+            </div>
+        </div>
+
+        <section id="cierre" class="cierre" hidden>
+            <h2>El recuerdo permanece</h2>
+            <p id="texto-cierre"></p>
+            <p class="etiqueta">
+                CAPÍTULO 3 COMPLETADO
+            </p>
+        </section>
+
+        <footer>
+            <a href="capitulo2.html">← Capítulo anterior</a>
+        </footer>
+
+    </main>
+</body>
+</html>

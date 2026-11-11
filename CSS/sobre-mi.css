@@ -384,3 +384,9 @@ body::before {
         transition: none;
     }
 }
+/* Final B: Paunexina ya no aparece en su perfil */
+
+html[data-underomori-final="despedirse"]
+[data-personaje="paunexina"] {
+    display: none !important;
+}

@@ -1,0 +1,253 @@
+
+/* ======================================
+   UNDEROMORI - CAPÍTULO 5
+   LA PERSONA DETRÁS DE LA PANTALLA
+====================================== */
+
+[hidden] {
+    display: none !important;
+}
+
+/* MAPA */
+
+.habitacion {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    background: #191321;
+}
+
+.habitacion .casilla-juego.suelo {
+    background: #392B47;
+}
+
+.habitacion .casilla-juego.pared {
+    background: #68516D;
+    border-color: #947399;
+}
+
+/* OBJETOS */
+
+.objeto-escritorio {
+    font-family: "Pixelify Sans", monospace;
+    font-size: clamp(17px, 3vw, 34px);
+    line-height: 1;
+
+    color: #F1B6DB;
+    text-shadow: 0 0 12px #EBA3D1;
+
+    position: relative;
+    z-index: 2;
+}
+
+.objeto-escritorio.leido {
+    color: #C3E2C5;
+    text-shadow: 0 0 8px #8DBE9A;
+}
+
+.objeto-escritorio.puerta-abierta {
+    color: #D5F1CB;
+    text-shadow: 0 0 12px #9BD9A4;
+}
+
+/* PAUNEXINA */
+
+.habitacion .sprite-jugador {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    transform: scale(1.5);
+    transform-origin: center;
+
+    position: relative;
+    z-index: 5;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.habitacion .casilla-juego:has(.sprite-jugador) {
+    z-index: 5;
+    overflow: visible;
+}
+
+/* RETRATO DEL DIÁLOGO */
+
+.identidad-dialogo {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.contenido-dialogo {
+    flex: 1;
+    min-width: 0;
+}
+
+.retrato-dialogo {
+    width: 72px;
+    height: 86px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    background: #33243D;
+    border: 2px solid #B181AA;
+}
+
+.nombre-personaje {
+    margin-top: 0;
+    color: #F4B6DC;
+}
+
+#texto-dialogo {
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+/* VENTANA DE ARCHIVO */
+
+.panel-archivo {
+    min-width: 0;
+    padding: 0;
+
+    background: #251B30;
+    border: 2px solid #C68FB8;
+
+    box-shadow: 5px 5px 0 #120D19;
+
+    max-height: 330px;
+    overflow-y: auto;
+}
+
+.encabezado-archivo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    padding: 7px 11px;
+
+    background: #785578;
+    color: #FFF0F9;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+#nombre-archivo {
+    overflow-wrap: anywhere;
+}
+
+#cerrar-archivo {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    padding: 0;
+
+    background: #F0B9D8;
+    color: #301D38;
+
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.cuerpo-archivo {
+    padding: 14px;
+}
+
+#contenido-archivo {
+    margin: 0 0 15px;
+
+    color: #F5DFEC;
+    line-height: 1.6;
+
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+#opciones-archivo {
+    display: grid;
+    gap: 9px;
+}
+
+#opciones-archivo button {
+    width: 100%;
+    padding: 11px;
+
+    text-align: left;
+    white-space: normal;
+
+    background: #45334F;
+    color: #FFF0F7;
+
+    border: 1px solid #BE8EAE;
+    cursor: pointer;
+}
+
+#opciones-archivo button:hover {
+    background: #65476C;
+}
+
+#opciones-archivo button:focus-visible,
+#cerrar-archivo:focus-visible {
+    outline: 3px solid #FFF0F7;
+    outline-offset: 2px;
+}
+
+/* FINAL DEL CAPÍTULO */
+
+.cierre {
+    padding: 24px;
+    margin-top: 18px;
+
+    background: #21182D;
+    border: 2px dashed #D9A4C8;
+
+    text-align: center;
+}
+
+.cierre h2 {
+    color: #EAB5D7;
+}
+
+.cierre p {
+    line-height: 1.7;
+}
+
+#continuar-capitulo6:not([hidden]) {
+    display: inline-block;
+    padding: 12px 18px;
+    margin-top: 12px;
+
+    background: #4B3355;
+    color: #FFF0F7;
+
+    border: 2px solid #E5A0C6;
+    text-decoration: none;
+}
+
+/* PANTALLAS PEQUEÑAS */
+
+@media (max-width: 900px) {
+    .retrato-dialogo {
+        width: 60px;
+        height: 72px;
+    }
+
+    .panel-archivo {
+        max-height: 400px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+}

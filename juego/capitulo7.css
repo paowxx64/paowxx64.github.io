@@ -1,0 +1,359 @@
+
+/* =========================================
+   UNDEROMORI - CAPÍTULO 7
+   EL NOMBRE QUE DEJÉ AQUÍ
+========================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+/* HABITACIÓN */
+
+.habitacion {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    background: #1c1628;
+}
+
+.habitacion .casilla-juego.suelo {
+    background: #3a2b49;
+}
+
+.habitacion .casilla-juego.pared {
+    background: #695170;
+    border-color: #94799a;
+}
+
+/* RECUERDOS DEL MAPA */
+
+.simbolo-final {
+    color: #f1b8df;
+    font-size: clamp(18px, 3vw, 34px);
+    line-height: 1;
+
+    text-shadow: 0 0 12px #e8a4d0;
+    animation: pulsoRecuerdo 2s infinite;
+}
+
+.simbolo-final.restaurado {
+    color: #c9e6cd;
+    text-shadow: 0 0 10px #a5d7af;
+    animation: none;
+}
+
+.simbolo-final.centro-activo {
+    color: #fff1c5;
+    text-shadow: 0 0 17px #f8dca1;
+}
+
+@keyframes pulsoRecuerdo {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* SPRITE DE PAUNEXINA */
+
+.habitacion .sprite-jugador {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transform: scale(1.5);
+    position: relative;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.habitacion .casilla-juego:has(.sprite-jugador) {
+    z-index: 5;
+    overflow: visible;
+}
+
+/* RETRATO Y DIÁLOGO */
+
+.identidad-dialogo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contenido-dialogo {
+    flex: 1;
+    min-width: 0;
+}
+
+.retrato-dialogo {
+    width: 70px;
+    height: 85px;
+    flex-shrink: 0;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: #31243d;
+    border: 2px solid #b88aad;
+}
+
+#hablante {
+    margin-top: 0;
+    color: #efb4d8;
+}
+
+#texto-dialogo {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* ROMPECABEZAS */
+
+.panel-puzzle {
+    padding: 14px;
+    background: #251b32;
+    border: 2px solid #c596bf;
+    min-width: 0;
+}
+
+.panel-puzzle h2 {
+    margin: 8px 0;
+    color: #f3c6e4;
+    font-size: 20px;
+}
+
+#instruccion-puzzle {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #dec4d9;
+}
+
+.tablero-puzzle {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+    max-width: 320px;
+    margin: 14px auto;
+}
+
+.pieza-circuito {
+    position: relative;
+    aspect-ratio: 1;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    background: #4a3658;
+    border: 2px solid #88698d;
+    color: #ffc8e9;
+
+    font-family: monospace;
+    font-size: clamp(26px, 4vw, 49px);
+    line-height: 1;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.pieza-circuito:hover:not(:disabled) {
+    background: #644971;
+    border-color: #f3b5df;
+}
+
+.pieza-circuito:focus-visible {
+    outline: 3px solid #fff0f7;
+    outline-offset: 2px;
+}
+
+.pieza-circuito:disabled {
+    cursor: default;
+}
+
+.pieza-circuito.vacia {
+    background: #281f34;
+    border-color: #46344d;
+    color: transparent;
+}
+
+.pieza-circuito.inicio {
+    border-color: #bce5c7;
+}
+
+.pieza-circuito.fin {
+    border-color: #f5cf99;
+}
+
+.pieza-circuito.inicio::after,
+.pieza-circuito.fin::after {
+    position: absolute;
+    bottom: 2px;
+    right: 3px;
+    font-size: 9px;
+    color: #fff0f7;
+}
+
+.pieza-circuito.inicio::after {
+    content: "IN";
+}
+
+.pieza-circuito.fin::after {
+    content: "FIN";
+}
+
+.pieza-circuito.conectada {
+    background: #3b604f;
+    color: #e0ffe5;
+    border-color: #a5dfb5;
+}
+
+.mensaje-puzzle {
+    color: #e4bed7;
+    text-align: center;
+    font-size: 14px;
+}
+
+#reiniciar-puzzle {
+    width: 100%;
+    padding: 10px;
+    background: #46314f;
+    color: #ffe6f5;
+    border: 2px solid #b788ad;
+    cursor: pointer;
+}
+
+/* DECISIÓN FINAL */
+
+.panel-final,
+.panel-confirmacion {
+    grid-column: 1 / -1;
+    padding: 24px;
+    background: #21182c;
+    border: 2px solid #d6a3c9;
+    text-align: center;
+}
+
+.panel-final h2,
+.panel-confirmacion h2 {
+    color: #f1c0e0;
+    margin-top: 8px;
+}
+
+.panel-final p,
+.panel-confirmacion p {
+    line-height: 1.6;
+}
+
+.opciones-finales {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.opciones-finales button {
+    min-height: 135px;
+    padding: 18px;
+
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 1.4;
+
+    color: #fff1f9;
+    background: #49334f;
+    border: 2px solid #c99bbe;
+    cursor: pointer;
+}
+
+.opciones-finales button:hover {
+    background: #684873;
+    border-color: #ffe0f2;
+}
+
+.opciones-finales small {
+    display: block;
+    margin-top: 12px;
+    color: #e3c8dc;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.botones-confirmacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.botones-confirmacion button {
+    padding: 12px 18px;
+    color: #fff0f7;
+    background: #49334f;
+    border: 2px solid #c99bbe;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* EPÍLOGO */
+
+.cierre {
+    grid-column: 1 / -1;
+    padding: 30px;
+    background: #21182d;
+    border: 2px dashed #dea5cc;
+    text-align: center;
+}
+
+.cierre h2 {
+    color: #f1c0e0;
+}
+
+.cierre p {
+    max-width: 750px;
+    margin: 20px auto;
+    line-height: 1.9;
+}
+
+#texto-cierre {
+    white-space: pre-line;
+}
+
+.frase-final {
+    font-size: 21px;
+    color: #f5cbe5;
+    font-style: italic;
+}
+
+.volver-pagina {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 18px;
+    background: #4a3356;
+    color: #fff0f7;
+    border: 2px solid #d7a6ce;
+    text-decoration: none;
+}
+
+.volver-pagina:hover {
+    background: #67466e;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .opciones-finales {
+        grid-template-columns: 1fr;
+    }
+
+    .retrato-dialogo {
+        width: 58px;
+        height: 72px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .simbolo-final {
+        animation: none;
+    }
+}

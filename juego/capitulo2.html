@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Archivo perdido | UnderOmorI</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="capitulo2.css">
+
+    <script src="capitulo2.js" defer></script>
+    <script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="2">
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 002</p>
+            <h1>El archivo perdido</h1>
+            <p class="subtitulo">
+                La puerta se cerró detrás de ti.
+                La computadora sigue encendida.
+            </p>
+        </header>
+
+        <section class="ventana-juego">
+            <div class="barra-ventana">
+                <span>◇ archivos_perdidos.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div id="habitacion" class="habitacion"
+                 aria-label="Sala de archivos">
+            </div>
+
+            <p id="estado" class="estado">
+                Pistas encontradas: 0/3
+            </p>
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+            <p id="hablante" class="nombre-personaje">
+                SISTEMA
+            </p>
+
+            <p id="texto-dialogo">
+                Busca las pistas escondidas en la sala.
+                Presiona E para examinar los objetos.
+            </p>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR
+            </button>
+        </section>
+
+        <!-- Contraseña de la computadora -->
+        <section id="terminal-clave" class="terminal-clave" hidden>
+            <h2>▣ ACCESO RESTRINGIDO</h2>
+            <p>Introduce la contraseña de tres letras.</p>
+
+            <form id="formulario-clave">
+                <label for="clave">CONTRASEÑA:</label>
+
+                <input
+                    id="clave"
+                    type="text"
+                    maxlength="3"
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit">
+                    DESBLOQUEAR
+                </button>
+            </form>
+
+            <button id="cerrar-terminal" type="button">
+                CERRAR
+            </button>
+        </section>
+
+        <div class="controles">
+            <button data-mover="arriba" aria-label="Arriba">▲</button>
+            <div>
+                <button data-mover="izquierda" aria-label="Izquierda">◀</button>
+                <button data-mover="abajo" aria-label="Abajo">▼</button>
+                <button data-mover="derecha" aria-label="Derecha">▶</button>
+            </div>
+        </div>
+
+        <footer>
+            <a href="index.html">← Regresar al capítulo 1</a>
+        </footer>
+
+    </main>
+</body>
+</html>

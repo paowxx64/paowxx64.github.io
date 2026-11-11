@@ -1096,3 +1096,33 @@ h1 {
     font-size: 10px;
     letter-spacing: 1px;
 }
+
+
+
+/* ======================================
+   UNDEROMORI - FINAL B
+   LA DESPEDIDA DE PAUNEXINA
+====================================== */
+
+/* Ocultar todo el cuadro de bienvenida */
+html[data-underomori-final="despedirse"] .bienvenida {
+    display: none !important;
+}
+
+/* Mantener visible el recuerdo */
+html[data-underomori-final="despedirse"]
+.paunexina-recuerdo-final {
+    display: block !important;
+
+    width: fit-content;
+    margin: 30px auto;
+    padding: 18px 24px;
+
+    background: #24182c;
+    color: #e5b4d3 !important;
+
+    border: 1px dashed #d19abb;
+
+    text-decoration: none !important;
+    text-align: center;
+}

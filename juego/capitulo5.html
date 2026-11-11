@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Capítulo 5 | UnderOmorI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="capitulo5.css">
+
+    <script src="estado.js" defer></script>
+    <script src="capitulo5.js" defer></script>
+    <script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="5">
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 005</p>
+            <h1>La persona detrás de la pantalla</h1>
+            <p class="subtitulo">
+                Un escritorio que conserva cosas
+                que nadie llegó a publicar.
+            </p>
+        </header>
+
+        <section class="ventana-juego">
+            <div class="barra-ventana">
+                <span>◇ escritorio_paolo.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div id="habitacion"
+                 class="habitacion"
+                 aria-label="Escritorio de Paolo">
+            </div>
+
+            <p id="estado" class="estado">
+                Archivos investigados: 0/3
+            </p>
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+            <div class="identidad-dialogo">
+                <img id="retrato"
+                     class="retrato-dialogo"
+                     src="../assets/sprites/paunexina-abajo.png"
+                     alt="">
+
+                <div class="contenido-dialogo">
+                    <p id="hablante" class="nombre-personaje">
+                        PAUNEXINA
+                    </p>
+
+                    <p id="texto-dialogo">
+                        ¿Dónde estamos ahora...?
+                    </p>
+                </div>
+            </div>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR / CONTINUAR
+            </button>
+        </section>
+
+        <section id="panel-archivo"
+                 class="elecciones panel-archivo"
+                 hidden>
+
+            <div class="encabezado-archivo">
+                <span id="nombre-archivo">
+                    archivo.txt
+                </span>
+
+                <button id="cerrar-archivo"
+                        type="button"
+                        aria-label="Cerrar archivo">
+                    ×
+                </button>
+            </div>
+
+            <div class="cuerpo-archivo">
+                <p id="contenido-archivo"></p>
+
+                <div id="opciones-archivo"></div>
+            </div>
+        </section>
+
+        <div class="controles">
+            <button data-mover="arriba"
+                    type="button"
+                    aria-label="Mover arriba">▲</button>
+
+            <div>
+                <button data-mover="izquierda"
+                        type="button"
+                        aria-label="Mover izquierda">◀</button>
+
+                <button data-mover="abajo"
+                        type="button"
+                        aria-label="Mover abajo">▼</button>
+
+                <button data-mover="derecha"
+                        type="button"
+                        aria-label="Mover derecha">▶</button>
+            </div>
+        </div>
+
+        <section id="cierre" class="cierre" hidden>
+            <p class="etiqueta">ARCHIVO 005 COMPLETADO</p>
+
+            <h2>Al otro lado de la pantalla</h2>
+
+            <p id="texto-cierre"></p>
+
+            <p class="etiqueta">
+                PRÓXIMO ARCHIVO: ALGUIEN ESTÁ AHÍ
+            </p>
+
+            <p>
+                <a href="capitulo6.html"
+                   id="continuar-capitulo6"
+                   hidden>
+                    ▶ CONTINUAR AL CAPÍTULO 6
+                </a>
+            </p>
+        </section>
+
+        <footer>
+            <a href="capitulo4.html">
+                ← Regresar al Capítulo 4
+            </a>
+        </footer>
+
+    </main>
+</body>
+</html>

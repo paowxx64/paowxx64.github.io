@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>UnderOmorI — Archivo 001</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="juego.css">
+    <script src="juego.js" defer></script>
+    <script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="1">
+
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 001</p>
+            <h1>El nombre que dejé aquí</h1>
+            <p class="subtitulo">
+                Hay tres archivos en esta habitación.
+                Alguien esperaba que los encontraras.
+            </p>
+        </header>
+
+        <section class="ventana-juego"
+                 aria-label="Habitación del juego">
+
+            <div class="barra-ventana">
+                <span>◇ habitacion_001.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div id="habitacion" class="habitacion"
+                 aria-label="Mapa del juego">
+            </div>
+
+            <p id="estado" class="estado">
+                Archivos encontrados: 0/3
+            </p>
+
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+            <p class="nombre-personaje" id="hablante">
+                SISTEMA
+            </p>
+
+            <p id="texto-dialogo">
+                Usa WASD o las flechas para moverte.
+                Acércate a un archivo y presiona E.
+            </p>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR
+            </button>
+        </section>
+
+        <div class="controles" aria-label="Controles táctiles">
+            <button data-mover="arriba" aria-label="Arriba">▲</button>
+
+            <div>
+                <button data-mover="izquierda" aria-label="Izquierda">◀</button>
+                <button data-mover="abajo" aria-label="Abajo">▼</button>
+                <button data-mover="derecha" aria-label="Derecha">▶</button>
+            </div>
+        </div>
+
+        <section id="decision" class="decision" hidden>
+            <p class="etiqueta">[ UNA ÚLTIMA PREGUNTA ]</p>
+
+            <h2>¿Qué debería permanecer?</h2>
+
+            <p>
+                Paunexina mira el espacio donde alguna vez
+                hubo una imagen de sí misma.
+            </p>
+
+            <p>
+                «No sé si soy alguien.
+                Pero sé que estuvimos aquí.»
+            </p>
+
+            <button id="conservar" type="button">
+                01 / CONSERVAR SU IMAGEN
+            </button>
+
+            <button id="dejar-ir" type="button">
+                02 / DEJAR IR SU IMAGEN
+            </button>
+        </section>
+
+        <section id="resultado" class="resultado" hidden>
+            <h2 id="titulo-resultado"></h2>
+            <p id="texto-resultado"></p>
+            <p class="etiqueta">ARCHIVO CERRADO</p>
+        </section>
+
+        <footer>
+            <a href="../index.html">← Volver al Underground</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

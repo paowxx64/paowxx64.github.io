@@ -1,0 +1,202 @@
+
+/* =====================================
+   UNDEROMORI - CAPÍTULO 3
+===================================== */
+
+.habitacion {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    background: #23172b;
+}
+
+.casilla-juego.suelo {
+    background: #45304b;
+}
+
+.casilla-juego.suelo:nth-child(even) {
+    background: #4c3554;
+}
+
+.casilla-juego.pared {
+    background: #745675;
+    border-color: #977396;
+}
+
+/* Representación temporal de Pao */
+.personaje-pao {
+    position: relative;
+    width: 42%;
+    height: 43%;
+
+    background: #d4aa87;
+    border: 2px solid #f7dfc0;
+    box-shadow: 0 4px 0 #73556b;
+}
+
+.personaje-pao::before {
+    content: "";
+    position: absolute;
+
+    width: 135%;
+    height: 75%;
+    top: -67%;
+    left: -18%;
+
+    background: linear-gradient(
+        #634438 0% 48%,
+        #f0c4a8 48% 100%
+    );
+
+    border: 2px solid #49332e;
+}
+
+.personaje-pao::after {
+    content: "▪▪";
+    position: absolute;
+
+    width: 135%;
+    left: -18%;
+    top: -45%;
+
+    text-align: center;
+    font-size: 11px;
+    color: #38232d;
+}
+
+/* Recuerdos interactivos */
+.recuerdo {
+    font-size: clamp(20px, 4vw, 38px);
+    color: #f5bfe2;
+
+    text-shadow: 0 0 12px #e5a0c6;
+    animation: brilloRecuerdo 2s ease-in-out infinite;
+}
+
+.recuerdo.recuperado {
+    color: #c7d6ad;
+    text-shadow: 0 0 10px #b8d4a9;
+    animation: none;
+}
+
+@keyframes brilloRecuerdo {
+    0%, 100% {
+        opacity: 0.65;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Puerta */
+.puerta-recuerdo {
+    font-size: clamp(20px, 4vw, 36px);
+    color: #f0c5df;
+}
+
+/* Panel de elecciones */
+.elecciones {
+    margin-top: 20px;
+    padding: 22px;
+
+    background: #2e2038;
+    border: 2px solid #e5a0c6;
+}
+
+.elecciones h2 {
+    margin: 12px 0 20px;
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+#opciones {
+    display: grid;
+    gap: 12px;
+}
+
+#opciones button {
+    width: 100%;
+    text-align: left;
+}
+
+/* Cierre del capítulo */
+.cierre {
+    margin-top: 22px;
+    padding: 30px;
+
+    background: #25172c;
+    border: 2px dashed #e5a0c6;
+
+    text-align: center;
+}
+
+.cierre h2 {
+    color: #f0b6d7;
+}
+
+.cierre p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+@media (max-width: 550px) {
+    .habitacion {
+        padding: 5px;
+        gap: 1px;
+    }
+
+    .elecciones {
+        padding: 15px;
+    }
+
+    .elecciones h2 {
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .recuerdo {
+        animation: none;
+    }
+}
+
+/* SPRITES DEL CAPÍTULO 3 */
+
+.habitacion .sprite-jugador,
+.habitacion .sprite-pao {
+    display: block;
+    width: 85%;
+    height: 90%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    position: relative;
+    z-index: 3;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.habitacion .sprite-jugador {
+    filter: drop-shadow(0 3px 0 #241429);
+}
+
+.habitacion .sprite-pao {
+    filter: drop-shadow(0 3px 0 #453042);
+}
+
+.enlace-siguiente {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 18px;
+
+    background: #3b2843;
+    color: #f5dfec;
+
+    border: 2px solid #e5a0c6;
+    text-decoration: none;
+}
+
+.enlace-siguiente:hover {
+    background: #674669;
+}

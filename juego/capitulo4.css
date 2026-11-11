@@ -1,0 +1,194 @@
+
+/* =====================================
+   UNDEROMORI - CAPÍTULO 4
+===================================== */
+
+/* MAPA DE 9 COLUMNAS */
+
+.habitacion {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    background: #1c1426;
+}
+
+.casilla-juego.suelo {
+    background: #3a2947;
+}
+
+.casilla-juego.suelo:nth-child(even) {
+    background: #422e4d;
+}
+
+.casilla-juego.pared {
+    background: #67486d;
+    border-color: #926f95;
+}
+
+/* OBJETOS INTERACTIVOS */
+
+.simbolo-futuro {
+    color: #f1afd9;
+    font-size: clamp(18px, 3.5vw, 35px);
+
+    text-shadow: 0 0 12px #e5a0c6;
+
+    animation: pulsoFuturo 2s ease-in-out infinite;
+}
+
+.simbolo-futuro.resuelto {
+    color: #c4dab6;
+    text-shadow: 0 0 12px #a6c5aa;
+    animation: none;
+}
+
+@keyframes pulsoFuturo {
+    0%, 100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* PERSONAJE */
+
+.habitacion .sprite-jugador {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    transform: scale(1.5);
+
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* RETRATO JUNTO AL DIÁLOGO */
+
+.identidad-dialogo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.identidad-dialogo > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.retrato-dialogo {
+    width: 74px;
+    height: 88px;
+    flex-shrink: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    image-rendering: pixelated;
+
+    background: #33243d;
+    border: 2px solid #a978a0;
+}
+
+.retrato-dialogo[hidden] {
+    display: none;
+}
+
+.nombre-personaje {
+    color: #f0b5d8;
+    margin-top: 0;
+}
+
+#texto-dialogo {
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* PANEL DE ELECCIONES */
+
+.elecciones {
+    padding: 16px;
+    border: 2px solid #e5a0c6;
+    background: #281c33;
+}
+
+.elecciones h2 {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#opciones {
+    display: grid;
+    gap: 9px;
+}
+
+#opciones button {
+    width: 100%;
+    padding: 12px;
+
+    text-align: left;
+    font-size: 15px;
+
+    white-space: normal;
+}
+
+.orden-elegido {
+    color: #e9bdd6;
+    border: 1px dashed #95688b;
+    background: #1c1324;
+    padding: 12px;
+
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* CIERRE DEL CAPÍTULO */
+
+.cierre {
+    margin-top: 20px;
+    padding: 25px;
+
+    background: #21152b;
+    border: 2px dashed #e5a0c6;
+
+    text-align: center;
+}
+
+.cierre h2 {
+    color: #e5a0c6;
+}
+
+.cierre p {
+    line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .retrato-dialogo {
+        width: 60px;
+        height: 75px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .simbolo-futuro {
+        animation: none;
+    }
+}
+.enlace-siguiente {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: #4b3355;
+    color: #fff0f7;
+    border: 2px solid #e5a0c6;
+    text-decoration: none;
+}
+
+.enlace-siguiente:hover {
+    background: #674669;
+}

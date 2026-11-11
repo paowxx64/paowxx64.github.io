@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>El nombre que dejé aquí | UnderOmorI</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="capitulo7.css">
+
+    <script src="estado.js" defer></script>
+    <script src="capitulo7.js" defer></script>
+    <script src="musica-juego.js" defer></script>
+</head>
+
+<body data-capitulo="7">
+    <main class="juego">
+
+        <header>
+            <p class="etiqueta">UNDEROMORI.EXE / 007</p>
+            <h1>El nombre que dejé aquí</h1>
+            <p class="subtitulo">
+                La última habitación reúne lo que fue,
+                lo que pudo ser y lo que aún permanece.
+            </p>
+        </header>
+
+        <section class="ventana-juego">
+            <div class="barra-ventana">
+                <span>◇ ultimo_recuerdo.exe</span>
+                <span>□ ×</span>
+            </div>
+
+            <div
+                id="habitacion"
+                class="habitacion"
+                aria-label="La última habitación"
+            ></div>
+
+            <p id="estado" class="estado">
+                Recuerdos restaurados: 0/3
+            </p>
+        </section>
+
+        <section class="dialogo" aria-live="polite">
+            <div class="identidad-dialogo">
+                <img
+                    id="retrato"
+                    class="retrato-dialogo"
+                    src="../assets/sprites/paunexina-abajo.png"
+                    alt=""
+                >
+
+                <div class="contenido-dialogo">
+                    <p id="hablante"
+                       class="nombre-personaje">
+                        PAUNEXINA
+                    </p>
+
+                    <p id="texto-dialogo">
+                        Esta es la última habitación...
+                    </p>
+                </div>
+            </div>
+
+            <button id="interactuar" type="button">
+                ▶ INTERACTUAR / CONTINUAR
+            </button>
+        </section>
+
+        <!-- Rompecabezas de los recuerdos -->
+        <section
+            id="panel-puzzle"
+            class="elecciones panel-puzzle"
+            hidden
+        >
+            <p class="etiqueta">REPARAR RECUERDO</p>
+
+            <h2 id="titulo-puzzle"></h2>
+            <p id="instruccion-puzzle">
+                Haz clic en las piezas para girarlas.
+                Conecta la primera con la última.
+            </p>
+
+            <div
+                id="tablero-puzzle"
+                class="tablero-puzzle"
+                aria-label="Circuito de recuerdos"
+            ></div>
+
+            <p id="mensaje-puzzle"
+               class="mensaje-puzzle"
+               aria-live="polite">
+                Circuito interrumpido.
+            </p>
+
+            <button
+                id="reiniciar-puzzle"
+                type="button"
+            >
+                ↺ MEZCLAR PIEZAS
+            </button>
+        </section>
+
+        <div class="controles">
+            <button data-mover="arriba"
+                    type="button"
+                    aria-label="Arriba">▲</button>
+
+            <div>
+                <button data-mover="izquierda"
+                        type="button"
+                        aria-label="Izquierda">◀</button>
+
+                <button data-mover="abajo"
+                        type="button"
+                        aria-label="Abajo">▼</button>
+
+                <button data-mover="derecha"
+                        type="button"
+                        aria-label="Derecha">▶</button>
+            </div>
+        </div>
+
+        <!-- Decisión final -->
+        <section
+            id="panel-final"
+            class="panel-final"
+            hidden
+        >
+            <p class="etiqueta">
+                DECISIÓN DEFINITIVA
+            </p>
+
+            <h2>¿Qué destino elegirás para Paunexina?</h2>
+
+            <p>
+                Ella conoce las dos posibilidades.
+                Tú decidirás cuál ocurrirá.
+            </p>
+
+            <div class="opciones-finales">
+                <button
+                    id="elegir-quedarse"
+                    type="button"
+                >
+                    ♡ QUE PERMANEZCA
+
+                    <small>
+                        Paunexina seguirá apareciendo
+                        en la página principal.
+                    </small>
+                </button>
+
+                <button
+                    id="elegir-despedirse"
+                    type="button"
+                >
+                    ◇ QUE SE DESPIDA
+
+                    <small>
+                        Paunexina dejará de aparecer,
+                        pero conservará un recuerdo.
+                    </small>
+                </button>
+            </div>
+        </section>
+
+        <!-- Confirmación antes de guardar -->
+        <section
+            id="panel-confirmacion"
+            class="panel-confirmacion"
+            hidden
+        >
+            <h2>¿Estás seguro de tu decisión?</h2>
+
+            <p id="texto-confirmacion"></p>
+
+            <p>
+                La elección se guardará en este
+                navegador. No podrás cambiarla
+                desde el juego.
+            </p>
+
+            <div class="botones-confirmacion">
+                <button
+                    id="confirmar-final"
+                    type="button"
+                >
+                    SÍ, ESTA ES MI DECISIÓN
+                </button>
+
+                <button
+                    id="cancelar-final"
+                    type="button"
+                >
+                    QUIERO PENSARLO
+                </button>
+            </div>
+        </section>
+
+        <!-- Epílogo -->
+        <section id="cierre" class="cierre" hidden>
+            <p class="etiqueta">
+                UNDEROMORI.EXE / FIN
+            </p>
+
+            <h2 id="titulo-cierre"></h2>
+
+            <p id="texto-cierre"></p>
+
+            <p class="frase-final"
+               id="frase-final"></p>
+
+            <a href="../index.html"
+               class="volver-pagina">
+                ▶ VOLVER A LA PÁGINA PRINCIPAL
+            </a>
+        </section>
+
+        <footer>
+            <a href="capitulo6.html">
+                ← Regresar al Capítulo 6
+            </a>
+        </footer>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,242 @@
+
+/* =========================================
+   UNDEROMORI - CAPÍTULO 6
+   ALGUIEN ESTÁ AHÍ
+========================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+/* MAPA */
+
+.habitacion {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    background: #1b1627;
+}
+
+.habitacion .casilla-juego.suelo {
+    background: #382d4b;
+}
+
+.habitacion .casilla-juego.pared {
+    background: #5b4c71;
+    border-color: #89779f;
+}
+
+/* SEÑALES Y TERMINAL */
+
+.senal {
+    font-size: clamp(20px, 3vw, 37px);
+    line-height: 1;
+    color: #f0b6e3;
+
+    text-shadow: 0 0 12px #db9dc8;
+    animation: latido 2s ease-in-out infinite;
+}
+
+.senal.escuchada {
+    color: #bdc8e9;
+    opacity: 0.55;
+    text-shadow: none;
+    animation: none;
+}
+
+.senal.terminal-activa {
+    color: #d5f4d9;
+    text-shadow: 0 0 14px #a0d6bc;
+}
+
+@keyframes latido {
+    0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* SPRITE */
+
+.habitacion .sprite-jugador {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    transform: scale(1.5);
+    transform-origin: center;
+
+    position: relative;
+    z-index: 5;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.habitacion .casilla-juego:has(.sprite-jugador) {
+    z-index: 5;
+    overflow: visible;
+}
+
+/* DIÁLOGO */
+
+.identidad-dialogo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contenido-dialogo {
+    flex: 1;
+    min-width: 0;
+}
+
+.retrato-dialogo {
+    width: 70px;
+    height: 85px;
+    flex-shrink: 0;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    background: #31283f;
+    border: 2px solid #af88b1;
+}
+
+#hablante {
+    margin-top: 0;
+    color: #f2b8df;
+}
+
+#texto-dialogo {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* PANELES */
+
+.panel-pregunta,
+.panel-nombre {
+    padding: 16px;
+    background: #262034;
+    border: 2px solid #ae85b0;
+}
+
+.panel-pregunta h2,
+.panel-nombre h2 {
+    font-size: 19px;
+    line-height: 1.5;
+    color: #f5d8e9;
+}
+
+#opciones {
+    display: grid;
+    gap: 10px;
+}
+
+#opciones button,
+#formulario-nombre button,
+#omitir-nombre {
+    width: 100%;
+    padding: 12px;
+
+    border: 2px solid #b68db8;
+    background: #493852;
+    color: #fff0f8;
+
+    text-align: left;
+    white-space: normal;
+
+    cursor: pointer;
+}
+
+#opciones button:hover,
+#formulario-nombre button:hover,
+#omitir-nombre:hover {
+    background: #695074;
+}
+
+#opciones button:focus-visible,
+#formulario-nombre button:focus-visible,
+#omitir-nombre:focus-visible,
+#nombre-jugador:focus-visible {
+    outline: 3px solid #f6c3e3;
+    outline-offset: 2px;
+}
+
+#formulario-nombre {
+    display: grid;
+    gap: 10px;
+}
+
+#formulario-nombre label {
+    color: #e9c2dc;
+}
+
+#nombre-jugador {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+
+    background: #181322;
+    color: #fff0f8;
+
+    border: 2px solid #a37ca9;
+    font: inherit;
+}
+
+#omitir-nombre {
+    margin-top: 10px;
+}
+
+/* FINAL */
+
+.cierre {
+    padding: 25px;
+    background: #20172c;
+
+    border: 2px dashed #dda8d1;
+    text-align: center;
+}
+
+.cierre h2 {
+    color: #e9b6dc;
+}
+
+.cierre p {
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .retrato-dialogo {
+        width: 58px;
+        height: 72px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .senal {
+        animation: none;
+    }
+}
+.enlace-siguiente {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 18px;
+
+    background: #49334f;
+    color: #fff0f7;
+
+    border: 2px solid #d6a3c9;
+    text-decoration: none;
+}
+
+.enlace-siguiente:hover {
+    background: #674873;
+}

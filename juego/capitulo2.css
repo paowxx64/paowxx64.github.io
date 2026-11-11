@@ -1,0 +1,120 @@
+
+/* CAPÍTULO 2 - ARCHIVO PERDIDO */
+
+.habitacion {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.casilla-objeto {
+    background: #49304f !important;
+    border: 1px solid #b589a8;
+}
+
+.casilla-objeto .objeto {
+    color: #f7cce5;
+    font-size: clamp(14px, 3vw, 28px);
+}
+
+.personaje-capitulo2 {
+    position: relative;
+    z-index: 2;
+
+    width: 40%;
+    height: 45%;
+    min-width: 10px;
+
+    background: #bd86ad;
+    border: 2px solid #f2c3dd;
+    box-shadow: 0 4px 0 #5d3858;
+}
+
+.personaje-capitulo2::before {
+    content: "";
+    position: absolute;
+
+    width: 130%;
+    height: 70%;
+    top: -65%;
+    left: -15%;
+
+    background: linear-gradient(
+        #69415b 0% 48%,
+        #d6a6bb 48% 100%
+    );
+
+    border: 1px solid #37243b;
+}
+
+.terminal-clave {
+    margin-top: 20px;
+    padding: 20px;
+
+    background: #1a1120;
+    border: 2px solid #e5a0c6;
+}
+
+.terminal-clave h2 {
+    color: #e5a0c6;
+    margin-top: 0;
+}
+
+.terminal-clave p {
+    line-height: 1.6;
+}
+
+#formulario-clave {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+#clave {
+    width: 100px;
+    padding: 10px;
+
+    background: #2a1b32;
+    color: #f5dfec;
+    border: 2px solid #e5a0c6;
+
+    font: inherit;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#clave:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+@media (max-width: 550px) {
+    .terminal-clave {
+        padding: 14px;
+    }
+
+    .personaje-capitulo2 {
+        border-width: 1px;
+        box-shadow: 0 2px 0 #5d3858;
+    }
+}
+
+/* SPRITE DE PAUNEXINA - CAPÍTULO 2 */
+
+.habitacion .sprite-jugador {
+    display: block;
+    width: 85%;
+    height: 90%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    position: relative;
+    z-index: 3;
+
+    pointer-events: none;
+    user-select: none;
+
+    filter: drop-shadow(0 3px 0 #241429);
+}
