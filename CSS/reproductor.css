@@ -1,0 +1,58 @@
+
+/* ==========================================
+   REPRODUCTOR DE MÚSICA RETRO
+========================================== */
+
+#boton-musica {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+
+    min-width: 75px;
+    min-height: 45px;
+
+    background: #291c30;
+    color: #f5dfec;
+
+    border: 2px solid #e5a0c6;
+    border-radius: 4px;
+
+    font-family: inherit;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 12px #e5a0c644;
+
+    transition: 0.2s ease;
+}
+
+#boton-musica:hover {
+    background: #e5a0c6;
+    color: #17101b;
+}
+
+#boton-musica:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* Adaptable a celulares */
+@media (max-width: 550px) {
+    #boton-musica {
+        bottom: 15px;
+        right: 15px;
+
+        min-width: 60px;
+        min-height: 42px;
+
+        font-size: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #boton-musica {
+        transition: none;
+    }
+}

@@ -1,0 +1,178 @@
+
+/* SOBRE MÍ - ESTILO RETRO */
+
+:root {
+    --fondo: #17101b;
+    --panel: #291c30;
+    --rosa: #e5a0c6;
+    --texto: #f5dfec;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px;
+    background: #080609;
+    color: var(--texto);
+    font-family: "Courier New", monospace;
+}
+
+/* Marco CRT */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 12px;
+    z-index: -1;
+    border: 4px solid #523650;
+    border-radius: 35px;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 3px,
+            #ffffff06 4px
+        ),
+        var(--fondo);
+    box-shadow:
+        0 0 25px #e5a0c633,
+        inset 0 0 40px #000000;
+    pointer-events: none;
+}
+
+/* Encabezado */
+.encabezado-principal {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: var(--rosa);
+    font-family: "Pixelify Sans", monospace;
+    font-size: clamp(26px, 5vw, 52px);
+    overflow-wrap: anywhere;
+}
+
+/* Contenido */
+.pagina-pendiente {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+/* Barra de editor */
+.barra-editor {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 8px 12px;
+    margin-bottom: 24px;
+    background: #f4e8f0;
+    color: #281b30;
+    font-weight: bold;
+}
+
+.editor-estado {
+    display: flex;
+    gap: 20px;
+}
+
+/* Módulo provisional */
+.modulo-pendiente {
+    min-height: 360px;
+    padding: 35px 20px;
+    background: var(--panel);
+    border: 2px dashed var(--rosa);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.icono-pendiente {
+    font-size: 50px;
+    color: var(--rosa);
+}
+
+.modulo-pendiente h2 {
+    margin: 0;
+    color: var(--rosa);
+    font-family: "Pixelify Sans", monospace;
+    font-size: clamp(24px, 4vw, 38px);
+}
+
+.modulo-pendiente p {
+    max-width: 550px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.mensaje-sistema {
+    color: #c69db7;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* Botón de regreso */
+.boton-regresar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 24px;
+    border: 2px solid var(--rosa);
+    color: var(--texto);
+    background: #211725;
+    text-decoration: none;
+    font-family: "Pixelify Sans", monospace;
+    font-size: 18px;
+}
+
+.boton-regresar:hover {
+    background: var(--rosa);
+    color: var(--fondo);
+}
+
+.boton-regresar:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 550px) {
+    body {
+        padding: 20px;
+    }
+
+    body::before {
+        inset: 6px;
+        border-radius: 20px;
+    }
+
+    .encabezado-principal {
+        padding: 25px 10px;
+    }
+
+    .modulo-pendiente {
+        min-height: 300px;
+        padding: 25px 15px;
+    }
+
+    .barra-editor {
+        font-size: 12px;
+    }
+
+    .editor-estado {
+        gap: 10px;
+    }
+
+    .boton-regresar {
+        width: 100%;
+        max-width: 280px;
+    }
+}

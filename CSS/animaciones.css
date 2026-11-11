@@ -1,0 +1,76 @@
+
+/* =====================================
+   TÍTULO PIXELADO CON OLA SUAVE
+===================================== */
+
+#titulo-retro {
+    font-family: "Silkscreen", monospace;
+    font-size: clamp(18px, 3.2vw, 38px);
+    font-weight: 700;
+    line-height: 1.6;
+
+    color: #f5dfec;
+    text-align: center;
+    overflow-wrap: normal;
+}
+
+/* Evita dividir palabras */
+.grupo-palabra {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Espacio entre palabras */
+.espacio-retro {
+    display: inline-block;
+    width: 0.5em;
+}
+
+/* Cada letra se anima individualmente */
+.letra-retro {
+    display: inline-block;
+
+    animation: olaRetro 3.5s ease-in-out infinite;
+
+    text-shadow:
+        2px 2px 0 #754567,
+        0 0 8px #e5a0c655;
+}
+
+/* Movimiento individual de las letras */
+#titulo-retro .letra-retro {
+    display: inline-block;
+
+    animation-name: olaRetro;
+    animation-duration: 2.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+    color: #f5dfec;
+
+    text-shadow:
+        2px 2px 0 #754567,
+        0 0 8px #e5a0c655;
+}
+
+/* Ola retro continua */
+@keyframes olaRetro {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-12px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+}
+
+/* Reduce el movimiento cuando se solicita */
+@media (prefers-reduced-motion: reduce) {
+    .letra-retro {
+        animation: none;
+    }
+}

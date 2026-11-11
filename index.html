@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Underground</title>
+
+    <!-- Fuente pixelada -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Animaciones -->
+    <link rel="stylesheet" href="CSS/animaciones.css">
+
+    <!-- Reproductor musical -->
+    <link rel="stylesheet" href="CSS/reproductor.css">
+
+    <!-- JavaScript principal -->
+    <script src="JS/script.js" defer></script>
+
+    <!-- JavaScript del reproductor -->
+    <script src="JS/reproductor.js" defer></script>
+
+    <script src="JS/animaciones.js" defer></script>
+</head>
+
+<body>
+
+    
+<!-- Barra superior retro -->
+<div class="barra-superior">
+
+    <a href="index.html" class="marca">
+      <span class="icono-marca" aria-hidden="true">✦</span>
+        <span>Paunexina</span>
+    </a>
+
+    <nav class="redes-superiores"
+         aria-label="Enlaces rápidos">
+
+        <a href="Html/proyectos.html"
+           aria-label="Proyectos"
+           title="Proyectos">
+            ✧
+        </a>
+
+        <a href="Html/musica.html"
+           aria-label="Música"
+           title="Música">
+            ♫
+        </a>
+
+        <a href="Html/youtube.html"
+           aria-label="YouTube"
+           title="YouTube">
+            ▶
+        </a>
+
+    </nav>
+</div>
+
+<!-- Título principal -->
+<header class="encabezado-principal">
+
+<h1 id="titulo-retro">
+    Paowpaowpaow UnderOmorI
+</h1>
+</header>
+
+
+    <main>
+        <!-- Cuadro de bienvenida -->
+     
+<section class="bienvenida">
+    <div class="dialogo">
+        <img
+            src="assets/avatar.png"
+            alt="Mi avatar"
+            class="avatar"
+        >
+
+        <div class="mensaje-contenedor">
+            <div class="mensaje-encabezado">
+                <h2>Paunexina</h2>
+
+                <button
+                    id="siguiente-mensaje"
+                    type="button"
+                    aria-label="Siguiente mensaje"
+                >▶</button>
+            </div>
+
+            <p id="texto-mensaje" aria-live="polite">
+                ¡Bienvenid@ a mi página!
+            </p>
+
+<!-- Easter egg: chat secreto -->
+<div id="chat-secreto" class="chat-secreto" hidden>
+    <div class="chat-mensajes" id="chat-mensajes"
+         role="log" aria-label="Conversación ficticia">
+    </div>
+
+    <form id="chat-formulario" class="chat-formulario">
+        <input
+            type="text"
+            id="chat-entrada"
+            placeholder="Escribe algo..."
+            aria-label="Tu mensaje"
+            maxlength="200"
+            autocomplete="off"
+            required
+        >
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+        </div>
+    </div>
+</section>
+
+        <!-- Botones de navegación -->
+        <nav class="menu" aria-label="Menú principal">
+            <a href="Html/sobre-mi.html">Sobre mí</a>
+            <a href="Html/proyectos.html">Proyectos</a>
+            <a href="Html/contacto.html">Contacto</a>
+            <a href="Html/musica.html">Música</a>
+            <a href="Html/youtube.html">YouTube</a>
+        </nav>
+    </main>
+
+<!-- Música ambiental -->
+<audio id="musica-fondo" loop preload="none">
+    <source src="assets/lain_music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Botón de música -->
+<button id="boton-musica" type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false">
+    ♫ ▶
+</button>
+
+</body>
+</html>

@@ -1,0 +1,1010 @@
+
+/* ==========================================
+   MI UNDERGROUND
+   ESTILO RETRO - ROSA NOCTURNO
+========================================== */
+
+/* ==========================================
+   1. COLORES PRINCIPALES
+========================================== */
+
+:root {
+    --fondo: #17101b;
+    --panel: #291c30;
+    --rosa: #e5a0c6;
+    --rosa-claro: #f5dfec;
+    --rosa-oscuro: #754567;
+    --borde: #523650;
+    --negro: #080609;
+}
+
+/* ==========================================
+   2. ESTILOS GENERALES
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px;
+
+    position: relative;
+    isolation: isolate;
+
+    background: var(--negro);
+    color: var(--rosa-claro);
+
+    font-family: "Courier New", monospace;
+
+    transition: background-color 1.5s ease;
+}
+
+
+/* ==========================================
+   3. PANTALLA RETRO CRT
+========================================== */
+
+ 
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 12px;
+
+    z-index: -1;
+
+    border: 5px solid #493047;
+    border-radius: 40px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(0, 0, 0, 0.12) 4px
+        ),
+        radial-gradient(
+            ellipse at center,
+            #291b30 0%,
+            #1c1222 65%,
+            #0d0910 100%
+        );
+
+    box-shadow:
+        0 0 0 3px #120c16,
+        0 0 0 7px #36243a,
+        0 0 30px #e5a0c633,
+        inset 0 0 60px #000000,
+        inset 0 0 18px #e5a0c622;
+
+    pointer-events: none;
+}
+
+
+/* Reflejo de pantalla antigua */
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 18px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            125deg,
+            rgba(255, 200, 235, 0.045) 0%,
+            transparent 35%,
+            transparent 100%
+        );
+
+    pointer-events: none;
+    z-index: 10;
+}
+
+
+/* ==========================================
+   4. ENCABEZADO
+========================================== */
+
+header {
+    text-align: center;
+    padding: 40px 15px;
+
+    border-bottom: 2px solid var(--rosa);
+}
+
+h1 {
+    color: var(--rosa);
+
+    font-size: clamp(28px, 5vw, 50px);
+
+    text-shadow:
+        0 0 12px #e5a0c655;
+
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   5. CONTENIDO PRINCIPAL
+========================================== */
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* ==========================================
+   6. CUADRO DE BIENVENIDA
+========================================== */
+
+.bienvenida {
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background: var(--panel);
+
+    border: 2px dashed var(--rosa);
+}
+
+.bienvenida h2 {
+    margin-top: 0;
+    color: var(--rosa);
+}
+
+/* ==========================================
+   7. MENÚ DE NAVEGACIÓN
+========================================== */
+
+.menu {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.menu a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 85px;
+    padding: 15px;
+
+    border: 2px solid var(--rosa);
+
+    background: #211725;
+
+    color: var(--rosa-claro);
+
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.menu a:hover {
+    background: var(--rosa);
+    color: var(--fondo);
+
+    box-shadow:
+        0 0 18px #e5a0c666;
+
+    transform: translateY(-3px);
+}
+
+.menu a:active {
+    transform: translateY(0);
+}
+
+.menu a:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   8. CUADRO DE DIÁLOGO RETRO
+========================================== */
+
+.dialogo {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.avatar {
+    width: 95px;
+    height: 95px;
+
+    object-fit: cover;
+
+    border: 2px solid var(--rosa);
+
+    flex-shrink: 0;
+}
+
+.mensaje-contenedor {
+    flex: 1;
+    min-width: 0;
+}
+
+.mensaje-encabezado {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.mensaje-encabezado h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+#siguiente-mensaje {
+    padding: 8px 12px;
+
+    background: transparent;
+    border: none;
+
+    color: var(--rosa-claro);
+
+    cursor: pointer;
+    font-size: 22px;
+}
+
+#siguiente-mensaje:hover {
+    color: var(--rosa);
+}
+
+#siguiente-mensaje:focus-visible {
+    outline: 2px solid var(--rosa);
+    outline-offset: 3px;
+}
+
+#texto-mensaje {
+    margin-bottom: 0;
+
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   9. CHAT SECRETO
+========================================== */
+
+.chat-secreto {
+    margin-top: 25px;
+    padding: 15px;
+
+    border: 2px solid var(--rosa);
+
+    background: #1b1121;
+}
+
+/* Elementos ocultos */
+
+.chat-secreto[hidden],
+#siguiente-mensaje[hidden],
+#boton-avanzar[hidden],
+.chat-formulario[hidden] {
+    display: none;
+}
+
+/* ==========================================
+   10. HISTORIAL DE CONVERSACIÓN
+========================================== */
+
+.chat-mensajes {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    height: 300px;
+    min-height: 0;
+
+    padding: 12px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #120c16;
+
+    scroll-behavior: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--rosa) #120c16;
+
+    overscroll-behavior: contain;
+}
+
+/* Scroll rosado para Chrome, Edge y Safari */
+
+.chat-mensajes::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-mensajes::-webkit-scrollbar-track {
+    background: #120c16;
+}
+
+.chat-mensajes::-webkit-scrollbar-thumb {
+    background: var(--rosa-oscuro);
+    border-radius: 4px;
+}
+
+.chat-mensajes::-webkit-scrollbar-thumb:hover {
+    background: var(--rosa);
+}
+
+/* Evitar que las burbujas se encojan */
+
+.chat-mensajes .burbuja {
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   11. BURBUJAS DEL CHAT
+========================================== */
+
+.burbuja {
+    max-width: 85%;
+
+    padding: 10px 14px;
+
+    border: 1px solid var(--rosa);
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* Mensajes del personaje */
+
+.burbuja.personaje {
+    align-self: flex-start;
+
+    background: #35243c;
+
+    color: var(--rosa-claro);
+}
+
+/* Mensajes del visitante */
+
+.burbuja.visitante {
+    align-self: flex-end;
+
+    background: #754567;
+
+    color: white;
+}
+
+/* Mensajes del sistema */
+
+.burbuja.sistema {
+    align-self: center;
+
+    border: none;
+    background: transparent;
+
+    color: var(--rosa);
+
+    text-align: center;
+    font-size: 12px;
+}
+
+/* ==========================================
+   12. FORMULARIO DEL CHAT
+========================================== */
+
+.chat-formulario {
+    display: flex;
+
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.chat-formulario input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 12px;
+
+    border: 1px solid var(--rosa);
+
+    background: #26182d;
+    color: white;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.chat-formulario input::placeholder {
+    color: #bca1b5;
+}
+
+.chat-formulario button {
+    padding: 12px;
+
+    border: 1px solid var(--rosa);
+
+    background: var(--rosa);
+    color: var(--fondo);
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.chat-formulario button:hover {
+    background: var(--rosa-claro);
+}
+
+.chat-formulario input:focus-visible,
+.chat-formulario button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   13. ATMÓSFERA EXISTENCIALISTA
+========================================== */
+
+body.modo-existencial {
+    background-color: #09060d;
+}
+
+.modo-existencial .chat-secreto {
+    border-color: #b879a3;
+
+    box-shadow:
+        0 0 25px #d58ab52b;
+
+    transition:
+        box-shadow 1.5s ease,
+        border-color 1.5s ease;
+}
+
+.modo-existencial .burbuja.personaje {
+    background: #302035;
+    border-color: #b879a3;
+}
+
+.modo-existencial .burbuja.sistema {
+    color: #e6a5ca;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   14. BOTÓN DE AVANZAR - NOVELA VISUAL
+========================================== */
+
+#boton-avanzar {
+    display: block;
+
+    margin: 18px 0 0 auto;
+
+    padding: 10px 22px;
+
+    background: #35243c;
+    color: var(--rosa-claro);
+
+    border: 2px solid var(--rosa);
+    border-radius: 4px;
+
+    font-family: inherit;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    box-shadow: 3px 3px 0 #080509;
+
+    animation: pulso-retro 1.8s infinite;
+}
+
+#boton-avanzar:hover {
+    background: var(--rosa);
+    color: var(--fondo);
+}
+
+#boton-avanzar:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #080509;
+}
+
+#boton-avanzar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    animation: none;
+}
+
+#boton-avanzar:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* Animación suave del botón */
+
+@keyframes pulso-retro {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+}
+
+/* ==========================================
+   15. BOTÓN APAGAR PANTALLA
+========================================== */
+
+.boton-apagar {
+    display: block;
+
+    margin: 20px auto;
+
+    padding: 14px 24px;
+
+    background: transparent;
+    color: #f0bdd8;
+
+    border: 1px solid #d695be;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.boton-apagar:hover {
+    background: #35243c;
+
+    box-shadow:
+        0 0 15px #d695be55;
+}
+
+.boton-apagar:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   16. PANTALLA FINAL
+========================================== */
+
+.pantalla-final {
+    position: fixed;
+
+    inset: 0;
+    z-index: 9999;
+
+    background: #080509;
+    color: var(--rosa);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    font-family: "Courier New", monospace;
+
+    animation:
+        aparecer-final 2.5s ease;
+}
+
+.pantalla-final p {
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.pantalla-final button {
+    background: transparent;
+
+    color: var(--rosa-claro);
+
+    border: 1px solid var(--rosa);
+
+    padding: 12px 20px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.pantalla-final button:hover {
+    background: #35243c;
+}
+
+.pantalla-final button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+.ayuda-cierre {
+    color: #b79aaf;
+    font-size: 12px;
+
+    max-width: 340px;
+}
+
+/* Aparición lenta de la pantalla final */
+
+@keyframes aparecer-final {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   17. RESPONSIVE - TABLETS
+========================================== */
+
+@media (max-width: 850px) {
+    .menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main {
+        margin: 30px auto;
+    }
+
+    .chat-mensajes {
+        height: 300px;
+    }
+}
+
+/* ==========================================
+   18. RESPONSIVE - CELULARES
+========================================== */
+
+@media (max-width: 550px) {
+    body {
+        padding: 22px;
+    }
+
+    body::before {
+        inset: 8px;
+
+        border-radius: 20px;
+    }
+
+    header {
+        padding: 25px 10px;
+    }
+
+    h1 {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+    main {
+        margin: 25px auto;
+    }
+
+    .bienvenida {
+        padding: 15px;
+    }
+
+    /* Diálogo */
+
+    .dialogo {
+        gap: 12px;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .mensaje-encabezado h2 {
+        font-size: 17px;
+    }
+
+    #texto-mensaje {
+        font-size: 14px;
+    }
+
+    /* Menú */
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    .menu a {
+        min-height: 65px;
+        font-size: 16px;
+    }
+
+    /* Chat */
+
+    .chat-secreto {
+        padding: 10px;
+    }
+
+    .chat-mensajes {
+        height: 280px;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .burbuja {
+        max-width: 95%;
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    /* Formulario */
+
+    .chat-formulario {
+        gap: 6px;
+    }
+
+    .chat-formulario input {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .chat-formulario button {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* Botón de avanzar */
+
+    #boton-avanzar {
+        padding: 10px 18px;
+        font-size: 18px;
+    }
+
+    /* Pantalla final */
+
+    .pantalla-final {
+        padding: 20px;
+    }
+
+    .pantalla-final p {
+        font-size: 14px;
+    }
+}
+
+/* ==========================================
+   19. ACCESIBILIDAD
+========================================== */
+
+/* Reducir animaciones cuando el usuario lo prefiera */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body,
+    .menu a,
+    .modo-existencial .chat-secreto,
+    .boton-apagar {
+        transition: none;
+    }
+
+    #boton-avanzar,
+    .pantalla-final {
+        animation: none;
+    }
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: pixelated;
+    border: 2px solid var(--rosa);
+    flex-shrink: 0;
+}
+
+@media (max-width: 550px) {
+    .avatar {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+
+/* Encabezado retro */
+header,
+main {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    border-bottom: 2px solid #d99dc2;
+    box-shadow: 0 3px 12px #e5a0c622;
+}
+
+h1 {
+    letter-spacing: 2px;
+
+    text-shadow:
+        2px 2px 0 #4b2b45,
+        0 0 12px #e5a0c655;
+}
+
+/* Marco CRT adaptable */
+@media (max-width: 550px) {
+    body::before {
+        inset: 6px;
+        border-width: 3px;
+        border-radius: 22px;
+
+        box-shadow:
+            0 0 0 2px #120c16,
+            0 0 0 4px #36243a,
+            inset 0 0 25px #000000;
+    }
+
+    body::after {
+        inset: 10px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        letter-spacing: 1px;
+    }
+}
+
+
+
+
+/* Tamaño del icono de la barra superior */
+.barra-superior .avatar-mini {
+    display: block;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    max-width: 34px;
+    max-height: 34px;
+
+    object-fit: cover;
+    image-rendering: pixelated;
+
+    border: 1px solid var(--rosa);
+}
+
+/* Organización de la barra superior */
+.barra-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 20px;
+
+    background: #211626;
+    border-bottom: 2px solid var(--rosa);
+}
+
+.barra-superior .marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+
+    color: var(--rosa-claro);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.redes-superiores {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.redes-superiores a {
+    color: var(--rosa);
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* Celulares */
+@media (max-width: 550px) {
+    .barra-superior {
+        padding: 10px;
+    }
+
+    .barra-superior .avatar-mini {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        max-width: 28px;
+        max-height: 28px;
+    }
+
+    .barra-superior .marca {
+        font-size: 14px;
+    }
+}
+
+
+.icono-marca {
+    display: grid;
+    place-items: center;
+
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+
+    background: #42263b;
+    color: #f5dfec;
+    border: 1px solid var(--rosa);
+
+    font-size: 24px;
+}
+
+
+/* Tipografía retro del título principal */
+.encabezado-principal h1 {
+    font-family: "Pixelify Sans", monospace;
+
+    font-size: clamp(30px, 5vw, 58px);
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #e5a0c6;
+
+    text-shadow:
+        3px 3px 0 #4b2b45,
+        0 0 15px #e5a0c655;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 550px) {
+    .encabezado-principal h1 {
+        font-size: clamp(24px, 7vw, 36px);
+        letter-spacing: 1px;
+    }
+}
