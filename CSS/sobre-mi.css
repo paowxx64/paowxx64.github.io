@@ -390,3 +390,19 @@ html[data-underomori-final="despedirse"]
 [data-personaje="paunexina"] {
     display: none !important;
 }
+
+
+/* GIF del Final A en teléfonos */
+
+@media (max-width: 600px) {
+
+    html[data-underomori-final="quedarse"]
+    img[data-personaje="paunexina"] {
+        display: block;
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+}
