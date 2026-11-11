@@ -3,65 +3,305 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sobre mí | Paowpaowpaow Underground</title>
+    <title>Sobre mí | Paowpaowpaow UnderOmorI</title>
 
-    <!-- Fuente retro -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Silkscreen:wght@400;700&display=swap"
           rel="stylesheet">
 
-    <!-- Estilos -->
-<link rel="stylesheet" href="../CSS/sobre-mi.css"></head>
+    <link rel="stylesheet" href="../CSS/sobre-mi.css">
+    <script src="../JS/sobre-mi.js" defer></script>
+    <link rel="stylesheet" href="../CSS/reproductor.css">
+<script src="../JS/reproductor.js" defer></script>
+</head>
+
+<!-- Música exclusiva de Sobre mí -->
+<audio id="musica-fondo" loop preload="none">
+    <source
+        src="../assets/sobre-mi.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+<!-- Botón de reproducción -->
+<button
+    id="boton-musica"
+    type="button"
+    aria-label="Reproducir música"
+    aria-pressed="false">
+    ♫ ▶
+</button>
+
 <body>
 
-    <header class="encabezado-principal">
-        <h1>Paowpaowpaow Underground</h1>
+    <header class="encabezado">
+        <a href="../index.html" class="volver-superior">
+            ← REGRESAR
+        </a>
+
+        <p>✦ PAOWPAOWPAOW UNDEROMORI ✦</p>
     </header>
 
-    <main class="pagina-pendiente">
+    <main class="archivo-personal">
 
-        <!-- Barra estilo editor -->
-        <div class="barra-editor">
-            <span>sobre-mi.md</span>
-
-            <div class="editor-estado">
-                <span>1,1</span>
-                <span>All</span>
-            </div>
+        <div class="titulo-pagina">
+            <p>DIRECTORIO / USUARIOS / PAUNEXINA</p>
+            <h1>Sobre mí</h1>
+            <span>◇ ───────────── ◇</span>
         </div>
 
-        <!-- Contenido provisional -->
-        <section class="modulo-pendiente">
+        <section class="terminal">
 
-            <div class="icono-pendiente" aria-hidden="true">
-                ◇
+            <div class="barra-terminal">
+                <span>✦ perfil_de_paunexina.exe</span>
+                <span>□ ×</span>
             </div>
 
-            <h2>Módulo pendiente por implementar</h2>
+            <div class="contenido-terminal">
 
-            <p>
-                Esta parte de mi pequeño rincón de
-                Internet todavía está en construcción.
-            </p>
+                <!-- Ficha de personaje -->
+                <aside class="ficha-personaje">
 
-            <p class="mensaje-sistema">
-                ERROR 001 · CONTENIDO NO DISPONIBLE
-            </p>
+                    <div class="marco-avatar">
+                        <img
+                            src="../assets/avatarpresentacion.gif"
+                            alt="Avatar animado de Paunexina"
+                            class="avatar-presentacion"
+                        >
+                    </div>
 
-            <a href="../index.html" class="boton-regresar">
-                ← Volver al inicio
+                    <div class="datos-personaje">
+                        <p><span>USUARIO</span> PAUNEXINA</p>
+                        <p><span>ESTADO</span> EN LÍNEA</p>
+                        <p><span>NIVEL</span> ???</p>
+                        <p><span>CLASE</span> APRENDIZ</p>
+                    </div>
+
+                    <p class="ficha-pie">
+                        ✦ PERSONAJE NO JUGABLE ✦
+                    </p>
+
+                </aside>
+
+                <!-- Menú de información -->
+                <div class="zona-informacion">
+
+                    <nav class="menu-archivos"
+                         aria-label="Apartados sobre mí">
+
+                        <button
+                            type="button"
+                            class="boton-archivo activo"
+                            data-seccion="identidad"
+                            aria-pressed="true">
+                            01 / IDENTIDAD
+                        </button>
+
+                        <button
+                            type="button"
+                            class="boton-archivo"
+                            data-seccion="intereses"
+                            aria-pressed="false">
+                            02 / INTERESES
+                        </button>
+
+                        <button
+                            type="button"
+                            class="boton-archivo"
+                            data-seccion="pagina"
+                            aria-pressed="false">
+                            03 / MI PAGINA
+                        </button>
+
+                        <button
+                            type="button"
+                            class="boton-archivo"
+                            data-seccion="fragmentos"
+                            aria-pressed="false">
+                            04 / FRAGMENTOS
+                        </button>
+
+                    </nav>
+
+                    <div class="pantalla-informacion"
+                         aria-live="polite">
+
+                        <!-- IDENTIDAD -->
+                        <section
+                            class="panel-info"
+                            id="identidad">
+
+                            <p class="numero-archivo">
+                                [ ARCHIVO 01 ]
+                            </p>
+
+                            <h2>Hola, soy Pa... mmm sí.</h2>
+
+                            <p>
+                                Te doy la bienvenida, usuario humano ,
+
+                                a esta web de Internet.
+                            </p>
+                            <p>(eres humamno?)</p>
+
+                            <p>
+                                No sé muy bien cómo presentarme.
+                                he usado muchos nombres como seudonimos, asi que realmente
+                                no importa mucho como se me diga mientras exista "pao" en ese nombre.
+                                (Y MIENTRAS NO SUENE IRRITANTE AL ESCUCHAR)
+
+                                
+                            </p>
+                            <p>
+                                Tengo la manía de hacerme
+                                preguntas y responderlas solo.
+
+                            </p>
+
+                            <p>
+                                ¿Es raro?
+                                Probablemente.
+                            </p>
+                                <p>
+                                    ¿es malo?
+                                    apuesto a que si 
+                                </p>
+
+                            <p>
+                                Pero bueno, akitamos.
+                            </p>
+                        </section>
+
+                        <!-- INTERESES -->
+                        <section
+                            class="panel-info"
+                            id="intereses"
+                            hidden>
+
+                            <p class="numero-archivo">
+                                [ ARCHIVO 02 ]
+                            </p>
+
+                            <h2>Cosas que me gustan</h2>
+
+                            <p>♫ Escuchar y descubrir música.</p>
+                            <p>▣ Aprender a programar (me falta dedicación).</p>
+                            <p>✧ Jugar videojuegos (no siempre).</p>
+                            <p>◇ Leer y encontrar cosas interesantes.</p>
+                                <p>No me considero fan de perder el tiempo, pero es de las cosas que mas hago
+
+                                </p>
+
+                            <p>
+                                También me gusta crear cosas
+                                que probablemente solo tengan
+                                sentido para mí.
+                            </p>
+
+                            <p>
+                                Y me parece perfecto.
+                            </p>
+                        </section>
+
+                        <!-- MI UNDERGROUND -->
+                        <section
+                            class="panel-info"
+                            id="pagina"
+                            hidden>
+
+                            <p class="numero-archivo">
+                                [ ARCHIVO 03 ]
+                            </p>
+
+                            <h2>¿Por qué existe esto?</h2>
+
+                            <p>
+                                wau Buena pregunta.
+                            </p>
+
+                            <p>
+                                Supongo que quería tener un
+                                alguna especie de lugar en Internet
+
+                                donde experimentar con código,
+                                guardar cosas y escribir tonoterias.
+                            </p>
+
+                            <p>
+                                No tengo claro en qué
+                                terminará convirtiéndose.
+                            </p>
+
+                            <p>
+                                Quizá en una página interesante.
+                                Quizá en un montón de archivos
+                                sin sentido.
+                                o talvez solo me olvide de su existencia 
+
+                            
+                            </p>
+
+                            <p>
+                                De momento, me gusta que exista.
+                            </p>
+                        </section>
+
+                        <!-- FRAGMENTOS -->
+                        <section
+                            class="panel-info"
+                            id="fragmentos"
+                            hidden>
+
+                            <p class="numero-archivo">
+                                [ ARCHIVO 04 ]
+                            </p>
+
+                            <h2>Fragmentos</h2>
+
+                            <blockquote class="cita">
+                                Subo, luego existo
+                            </blockquote>
+
+                            <p class="nota-cita">
+                                — parodia de una frase de Descartes.
+                            </p>
+
+                            <p>
+                                También hay una frase de
+                                Serial Experiments Lain
+                                que me gusta mucho.
+                            </p>
+
+                            <p>
+                                Supongo que algunas historias
+                                se quedan dando vueltas en
+                                nuestra cabeza.
+                            </p>
+                        </section>
+
+                    </div>
+
+                    <div class="estado-terminal">
+                        <span>● SISTEMA ACTIVO</span>
+                        <span id="nombre-archivo">identidad.txt</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="pie-pagina">
+            <a href="../index.html">
+                ← VOLVER AL INICIO
             </a>
 
-        </section>
+            <span>© PAOWPAOWPAOW UNDEROMORI</span>
+        </footer>
 
     </main>
 

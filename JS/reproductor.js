@@ -54,7 +54,7 @@ const cancionesFinales = {
 };
 
 
-const cancionNormal = "assets/lain_music.mp3";
+const cancionNormal = musicaFondo.querySelector("source").src;
 
 
 async function cambiarCancion(ruta) {
