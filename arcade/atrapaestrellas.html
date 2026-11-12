@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Atrapaestrellas | Paow Arcade</title>
+
+    <!-- Fuente pixel art -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="atrapaestrellas.css">
+
+    <!-- JavaScript -->
+    <script src="atrapaestrellas.js" defer></script>
+</head>
+
+<body>
+
+    <main class="arcade">
+
+        <!-- =====================================
+             ENCABEZADO
+        ====================================== -->
+
+        <header class="encabezado">
+
+            <p class="etiqueta">
+                PAOW.EXE / ARCADE_001
+            </p>
+
+            <h1>☆ ATRAPAESTRELLAS ☆</h1>
+
+            <p>
+                Algunas estrellas pasan demasiado rápido.
+                ¿Cuántas lograrás atrapar?
+            </p>
+
+        </header>
+
+
+        <!-- =====================================
+             MARCADOR
+        ====================================== -->
+
+        <section class="marcador" aria-label="Marcador">
+
+            <div>
+                <span>PUNTOS</span>
+                <strong id="puntos">0</strong>
+            </div>
+
+            <div>
+                <span>TIEMPO</span>
+                <strong id="tiempo">45</strong>
+            </div>
+
+            <div>
+                <span>RÉCORD</span>
+                <strong id="record">0</strong>
+            </div>
+
+            <div>
+                <span>★ ESTRELLAS</span>
+                <strong id="estrellas-atrapadas">0</strong>
+            </div>
+
+            <div>
+                <span>✹ MALOS RECUERDOS</span>
+                <strong id="malos-recuerdos">0</strong>
+            </div>
+
+            <div>
+                <span>PUNTOS PERDIDOS</span>
+                <strong id="puntos-perdidos">0</strong>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ZONA DE JUEGO + PAO
+        ====================================== -->
+
+        <div class="zona-juego">
+
+            <!-- CAMPO DE JUEGO -->
+            <section
+                id="campo"
+                class="campo"
+                aria-label="Campo del minijuego"
+            >
+
+                <!-- Fondo -->
+                <div class="fondo-estrellas"></div>
+
+                <!-- Estrellas y malos recuerdos -->
+                <div id="objetos" class="objetos"></div>
+
+                <!-- Cesta -->
+                <div id="cesta" class="cesta">
+                    <span>♡</span>
+                </div>
+
+
+                <!-- =====================================
+                     PANTALLA INICIAL Y RESULTADOS
+                ====================================== -->
+
+                <div id="pantalla" class="pantalla">
+
+                    <div class="ventana">
+
+                        <p class="etiqueta">
+                            STAR_CATCHER.EXE
+                        </p>
+
+                        <h2 id="titulo-pantalla">
+                            ¿LISTO PARA JUGAR?
+                        </h2>
+
+                        <p id="mensaje-pantalla">
+                            Atrapa estrellas durante 45 segundos
+                            y evita los malos recuerdos.
+                        </p>
+
+                        <!-- Selector de dificultad -->
+                        <div class="selector-dificultad">
+
+                            <label for="dificultad">
+                                DIFICULTAD
+                            </label>
+
+                            <select id="dificultad">
+
+                                <option value="facil">
+                                    ☆ FÁCIL
+                                </option>
+
+                                <option value="normal" selected>
+                                    ✦ NORMAL
+                                </option>
+
+                                <option value="dificil">
+                                    ✹ DIFÍCIL
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Comenzar partida -->
+                        <button
+                            id="comenzar"
+                            type="button"
+                        >
+                            ▶ COMENZAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- FIN DEL CAMPO -->
+
+
+            <!-- =====================================
+                 PAO: ACOMPAÑANTE PERMANENTE
+            ====================================== -->
+
+            <aside
+                class="pao-acompanante"
+                aria-label="Acompañante Pao"
+            >
+
+                <!-- Sprite interactivo -->
+                <button
+                    id="hablar-pao"
+                    class="boton-pao"
+                    type="button"
+                    aria-label="Hablar con Pao"
+                >
+
+                    <img
+                        id="sprite-pao"
+                        src="../assets/sprites/pao-neutral.png"
+                        alt="Pao"
+                    >
+
+                </button>
+
+
+                <!-- Diálogos -->
+                <div
+                    class="burbuja-pao"
+                    aria-live="polite"
+                >
+
+                    <strong id="estado-pao">
+                        PAO.EXE ♡
+                    </strong>
+
+                    <p id="mensaje-pao">
+                        Owa... ¿quieres jugar conmigo?
+                    </p>
+
+                </div>
+
+
+                <!-- Indicación -->
+                <p class="pao-indicacion">
+                    ♡ Haz clic en Pao para hablar
+                </p>
+
+            </aside>
+
+        </div>
+        <!-- FIN DE ZONA-JUEGO -->
+
+
+        <!-- =====================================
+             CONTROLES
+        ====================================== -->
+
+        <div class="controles">
+
+            <button
+                id="izquierda"
+                type="button"
+                aria-label="Mover a la izquierda"
+            >
+                ◀
+            </button>
+
+            <p>← A / D →</p>
+
+            <button
+                id="derecha"
+                type="button"
+                aria-label="Mover a la derecha"
+            >
+                ▶
+            </button>
+
+        </div>
+
+
+        <!-- INSTRUCCIONES -->
+
+        <p class="instrucciones">
+            PC: usa A/D, las flechas o el mouse.
+            En teléfono: arrastra sobre el juego
+            o utiliza los botones.
+        </p>
+
+
+        <!-- =====================================
+             VOLVER A LA PÁGINA
+        ====================================== -->
+
+        <footer>
+
+            <a href="../index.html">
+                ← VOLVER A LA PÁGINA
+            </a>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================
+         MÚSICA Y EFECTOS DE SONIDO
+    ====================================== -->
+
+    <!-- Música principal -->
+    <audio
+        id="musica-arcade"
+        loop
+        preload="auto"
+    >
+        <source
+            src="audio/atrapaestrellas.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+    <!-- Sonido al atrapar estrellas -->
+    <audio
+        id="sonido-estrella"
+        preload="auto"
+    >
+        <source
+            src="audio/estrella.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+    <!-- Sonido de mal recuerdo -->
+    <audio
+        id="sonido-malo"
+        preload="auto"
+    >
+        <source
+            src="audio/malo.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+    <!-- Sonido al finalizar -->
+    <audio
+        id="sonido-final"
+        preload="auto"
+    >
+        <source
+            src="audio/final.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+</body>
+</html>
+
